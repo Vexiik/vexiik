@@ -1,0 +1,92 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: monospace;
+}
+
+body{
+background:black;
+color:#00ffcc;
+min-height:100vh;
+}
+
+.matrix{
+position:fixed;
+width:100%;
+height:100%;
+background:url("https://i.imgur.com/2JgJ7YB.gif");
+opacity:.15;
+z-index:-1;
+}
+
+header{
+text-align:center;
+padding:40px;
+}
+
+.glitch{
+font-size:70px;
+position:relative;
+}
+
+.glitch:before,.glitch:after{
+content:attr(data-text);
+position:absolute;
+left:0;
+}
+
+.glitch:before{
+color:red;
+animation:glitchTop 2s infinite;
+clip-path:polygon(0 0,100% 0,100% 45%,0 45%);
+}
+
+.glitch:after{
+color:blue;
+animation:glitchBottom 2s infinite;
+clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);
+}
+
+@keyframes glitchTop{
+0%{transform:translate(2px,-2px);}
+100%{transform:translate(-2px,2px);}
+}
+
+@keyframes glitchBottom{
+0%{transform:translate(-2px,2px);}
+100%{transform:translate(2px,-2px);}
+}
+
+#terminalSection{
+display:flex;
+justify-content:center;
+padding:30px;
+}
+
+.terminal{
+width:80%;
+height:300px;
+border:1px solid #00ffcc;
+padding:15px;
+overflow-y:auto;
+background:#020202;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+border:1px solid #00ffcc;
+padding:20px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+opacity:.6;
+}
